@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Showcase ピザ</title>
+    <img src="pizza.jpg" width="100%" height="auto" alt="pizza" />
+<script src="https://assistant-web.watsonplatform.net/loadWatsonAssistantChat.js"></script>
+<script>
+  window.loadWatsonAssistantChat({
+    integrationID: "insert here",
+    region: "jp-tok"
+  }).then(function(instance){
+    instance.render();
+  });
+</script>
+<script>
+  window.watsonAssistantChatOptions = {
+      integrationID: "901e6059-2809-4dba-8bbe-e18c82c202ae", // The ID of this integration.
+      region: "dev", // The region your integration is hosted in.
+      serviceInstanceID: "00000000-0000-0000-1635-135735367942", // The ID of your service instance.
+      cloudPrivateHostURL: "https://cpd-zen.roks-customercare-tokyo-1-45fd50251ba6e6694c802802d1291f6a-0000.jp-tok.containers.appdomain.cloud/assistant/zen-wa/integrations", // The integration service URL for your provisioned instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://cpd-zen.roks-customercare-tokyo-1-45fd50251ba6e6694c802802d1291f6a-0000.jp-tok.containers.appdomain.cloud/assistant/zen-wa/integrations/static/webchat/loadWatsonAssistantChat.js";
+    document.head.appendChild(t);
+  });
+</script>
+</head>
+
+<body>
+<body style="background-color:#eeeeee">
+</body>
+
+</html>
+
+
+
