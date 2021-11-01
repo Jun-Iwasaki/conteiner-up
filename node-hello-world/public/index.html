@@ -1,14 +1,52 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-  <title>Express</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>ピザの注文</title>
+<style>
+html,body {
+	margin:0;
+	padding:0;
+	height:100%;
+	overflow: hidden;
+	box-sizing: border-box;
+	}
+body {
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	color: #333;
+  font-size: 15px;
+	}
+#left {
+	position:absolute;
+	top:0;
+	left:0px;
+	width:50%;
+	height:100%;
+	text-align:center;
+	}
+#right{
+	position:absolute;
+	top:0;
+	right:0;
+	left:50%;
+	height:100%;
+	border-left:2px solid #ccc;
+	}
+iframe {
+  border:none;
+	height:100%;
+	width:100%;
+	}
+</style>
 </head>
-
 <body>
-  <h1>Expressのpublicにあるindex.htmlです</h1>
-  <p>ようこそExpressへ</p>
-  <p>これを変更するといつ反映されるのでしょうか</p>
+  <div id="left">
+    <iframe src="pizza_old.html"></iframe>
+  </div>
+  <div id="right">
+    <iframe src="pizza.html"></iframe>
+  </div>
 </body>
-
 </html>
