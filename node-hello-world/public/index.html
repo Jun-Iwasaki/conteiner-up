@@ -2,13 +2,12 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>HTML5でframeset風ページ</title>
+<title>Customer Care デモ</title>
 <style>
 .tabs {
   display: flex;
   flex-wrap: wrap;
 }
- 
 .tabs label {
   order: 1;
   display: flex;
@@ -21,7 +20,6 @@
   font-weight: bold;
   transition: background ease 0.3s;
 }
- 
 .tabs .tab {
   order: 9;
   flex-grow: 1;
@@ -33,31 +31,25 @@
   padding: 20px;
   box-shadow: -10px 10px 0px 0px black;
 }
- 
 .tabs input[type="radio"] {
   display: none;
 }
- 
 .tabs input[type="radio"]:checked + label {
   background: #fff;
-}
- 
+} 
 .tabs input[type="radio"]:checked + label + .tab {
   display: block;
 }
- 
 @media (max-width: 465px) {
   .tabs .tab,
   .tabs label {
    order: initial;
   }
- 
   .tabs label {
     width: 100%;
     margin-left: 50px;
   }
 }
- 
 html,body {
   margin:0;
   padding:0;
@@ -94,9 +86,7 @@ iframe {
 </style>
 </head>
 <body>
-
   <div class="tabs">
-
     <input type="radio" name="tabs" id="tabone" checked="checked">
     <label for="tabone">ピザの注文</label>
     <div class="tab">
@@ -107,25 +97,24 @@ iframe {
     <iframe src="pizza_old.html"></iframe>
   </div>
     </div>
-
     <input type="radio" name="tabs" id="tabtwo">
     <label for="tabtwo">答えの検索</label>
     <div class="tab">
       <h1>答えの検索（Answer finding）</h1>
-      <p>Watson Discoveryの特徴的な機能として答えの検索(Answer finding)があります</p>
-      <p>このページとリンクはまだ作成中です</p>
-      <a href="https://reading-comprehension-website.mybluemix.net/" target="_blank">Answer findingの使用</a>
+      <p>Watson Discoveryの特徴的な機能として答えの検索(Answer finding)があります。
+      	<br>Answer findingを利用してDiscoveryに質問をすると、文書群の中からピンポイントに答えを見つけて回答を得ることができます。
+        <br>＊Answer findingは現時点でクラウドサービスでのみ利用できます</p>
+      <p><a href="https://reading-comprehension-website.mybluemix.net/" target="_blank">Answer findingのデモ</a>
+      <br>Select topicで「Custom」を選ぶと各自のデータで答えの検索を確認できます</p>
     </div>
-    
     <input type="radio" name="tabs" id="tabthree">
     <label for="tabthree">テキストマイニング</label>
     <div class="tab">
-      <h1>Watson Discovery コンテンンツ・マイニング</h1>
+      <h1>Watson Discovery Content Miner</h1>
       <p>Watson Discoveryのテキストマイニングツールとして Content Miner があります</p>
-      <p>このページとリンクはまだ作成中です</p>
       <a href="https://cpd-zen.roks-customercare-tokyo-1-45fd50251ba6e6694c802802d1291f6a-0000.jp-tok.containers.appdomain.cloud/discovery/zen-wd/cm/miner/main/instances/00000000-0000-0000-1634-917089967463/b2a783ed-4815-7609-0000-017ca9fe6ada" target="_blank">コンテンツ・マイニング・アプリケーションの使用</a>
+      <br>ユーザー名/パスワード：　showcase / password
     </div>
   </div>
-
 </body>
 </html>
