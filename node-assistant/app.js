@@ -8,7 +8,7 @@ server.listen(8080);
 
 server.on('request', function(req, res)
 {
-    if (req.method == 'GET')
+    if (req.method == 'POST')
     {
         let content = url.parse(req.url, true);
 
