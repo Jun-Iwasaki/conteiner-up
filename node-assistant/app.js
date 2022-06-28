@@ -8,9 +8,21 @@ server.listen(8080);
 
 server.on('request', function(req, res)
 {
-    if (req.method == 'POST')
+    if (req.method == 'GET')
     {
-        let content = url.parse(req.url, true);
+        let content = url.parse(req.url, true); 
+        // .queryに配列としてパラメータとデータが入っている
+        //res.write('age = ' + content.query['age'] + '\n');
+        //res.end();
+    } else if (req.method === 'POST') {
+        var data = '';
+    
+   //POSTデータを受けとる
+        req.on('data', function(chunk) {data += chunk})
+        .on('end', function() {
+ 
+        parsedPostResponse = JSON.parse(data);
+        console.log(parsedPostResponse.age);
 
 // ここから
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
@@ -46,7 +58,8 @@ getToken((err) => console.log(err), function () {
         } catch(ex) {
                 // TODO: handle parsing exception
         }
-        const input_age = content.query['age'];
+        // POSTされたJSONから年代を取得
+        const input_age = parsedPostResponse.age;
         // NOTE: manually define and pass the array(s) of values to be scored in the next line
         const payload = '{"input_data": [{"fields": ["会員ID","年代","商品中分類","商品ID"],"values": [[1,"' + input_age + '","婦人服03",9900172]]}]}'
         //const payload = '{"input_data": [{"fields": ["会員ID","年代","商品中分類","商品ID"],"values": [[1,"20代","婦人服03",9900172]]}]}'
@@ -74,10 +87,6 @@ getToken((err) => console.log(err), function () {
         });
 });
 // ここまで
-        // .queryに配列としてパラメータとデータが入っている
-        //res.write('param = ' + content.query['param'] + '\n');
-        //res.write('query = ' + content.query['query'] + '\n');
-        //res.write('resJSON = ' + resJSON + '\n');
-        //res.end();
+      })
     }
 });
