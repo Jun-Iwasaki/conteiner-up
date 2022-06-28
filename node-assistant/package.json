@@ -1,0 +1,23 @@
+{
+  "name": "assistant",
+  "version": "1.0.0",
+  "description": "Assistant web",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "openshift": "nodeshift --expose --dockerImage=registry.access.redhat.com/rhscl/ubi8/nodejs-12",
+    "start": "node app.js"
+  },
+  "author": "Jun",
+  "license": "ISC",
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "nodeshift": "^8.7.0"
+  },
+  "files": [
+    "package.json",
+    "app.js"
+  ]
+}
