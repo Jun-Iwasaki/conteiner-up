@@ -66,7 +66,9 @@ getToken((err) => console.log(err), function () {
         ;
         console.log(payload);
         // 併売分析スコアリングonline
-        const scoring_url = "https://jp-tok.ml.cloud.ibm.com/ml/v4/deployments/1a4b8b75-c711-459e-94b5-5b4a0114fdf4/predictions?version=2022-07-01";
+        // 前のバージョン const scoring_url = "https://jp-tok.ml.cloud.ibm.com/ml/v4/deployments/1a4b8b75-c711-459e-94b5-5b4a0114fdf4/predictions?version=2022-07-01";
+        const scoring_url = "https://jp-tok.ml.cloud.ibm.com/ml/v4/deployments/56b4cedf-9c20-4683-a999-08c4152f9a3a/predictions?version=2022-07-29";
+
         // 併売分析スコアリング0616all-Online
         // const scoring_url = "https://jp-tok.ml.cloud.ibm.com/ml/v4/deployments/e9254d2a-c752-4368-9d78-bfbf0cb1db10/predictions?version=2022-06-16";
         apiPost(scoring_url, tokenResponse.access_token, payload, function (resp) {
