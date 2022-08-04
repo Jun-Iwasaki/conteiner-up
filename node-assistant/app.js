@@ -65,11 +65,7 @@ getToken((err) => console.log(err), function () {
         //const payload = '{"input_data": [{"fields": ["会員ID","年代","商品中分類","商品ID"],"values": [[1,"20代","婦人服03",9900172]]}]}'
         ;
         console.log(payload);
-        // 併売分析スコアリングonline
-        const scoring_url = "const scoring_url = "https://jp-tok.ml.cloud.ibm.com/ml/v4/deployments/e5733118-adc0-4932-849b-d965867cb7a7/predictions?version=2022-08-04";
-
-        // 併売分析スコアリング0616all-Online
-        // const scoring_url = "https://jp-tok.ml.cloud.ibm.com/ml/v4/deployments/e9254d2a-c752-4368-9d78-bfbf0cb1db10/predictions?version=2022-06-16";
+        const scoring_url = "https://jp-tok.ml.cloud.ibm.com/ml/v4/deployments/e5733118-adc0-4932-849b-d965867cb7a7/predictions?version=2022-08-04";
         apiPost(scoring_url, tokenResponse.access_token, payload, function (resp) {
                 let parsedPostResponse;
                 try {
@@ -79,7 +75,8 @@ getToken((err) => console.log(err), function () {
                 }
                 console.log("Scoring response");
                 // console.log(parsedPostResponse.predictions[0].values[0][1]);
-                console.log(parsedPostResponse.predictions[0].values[0]);
+                // console.log(parsedPostResponse.predictions[0].values[0]);
+                console.log(parsedPostResponse.predictions[0]);
                 res.writeHead(200, {'Content-Type': 'application/json; charset=UTF-8'});
                 res.write(JSON.stringify(parsedPostResponse));
                 res.end();
