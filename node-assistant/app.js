@@ -22,7 +22,7 @@ server.on('request', function(req, res)
         .on('end', function() {
  
         parsedPostResponse = JSON.parse(data);
-        console.log(parsedPostResponse.age);
+        console.log(parsedPostResponse);
 
 // ここから
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
@@ -58,13 +58,15 @@ getToken((err) => console.log(err), function () {
         } catch(ex) {
                 // TODO: handle parsing exception
         }
-        // POSTされたJSONから年代を取得
+        // POSTされたJSONから年代,カテゴリー,商品IDを取得
         const input_age = parsedPostResponse.age;
-        // NOTE: manually define and pass the array(s) of values to be scored in the next line
-        const payload = '{"input_data": [{"fields": ["会員ID","年代","商品中分類","商品ID"],"values": [[1,"' + input_age + '","婦人服03",9900172]]}]}'
-        //const payload = '{"input_data": [{"fields": ["会員ID","年代","商品中分類","商品ID"],"values": [[1,"20代","婦人服03",9900172]]}]}'
-        ;
+        const input_product = parsedPostResponse.product;
+        const input_category = parsedPostResponse.category;
+        // NOTE: 併売分析モデルに渡すJSONを作成
+        const payload = '{"input_data": [{"fields": ["会員ID","年代","商品中分類","商品ID"],"values": [[1,"' + input_age + '","' + input_category + '","' + input_product + '"]]}]}'
+        // const payload = '{"input_data": [{"fields": ["会員ID","年代","商品中分類","商品ID"],"values": [[1,"' + input_age + '","婦人服03",9900172]]}]}';
         console.log(payload);
+        // 併売分析スコアリングonline
         const scoring_url = "https://jp-tok.ml.cloud.ibm.com/ml/v4/deployments/e5733118-adc0-4932-849b-d965867cb7a7/predictions?version=2022-08-04";
         apiPost(scoring_url, tokenResponse.access_token, payload, function (resp) {
                 let parsedPostResponse;
